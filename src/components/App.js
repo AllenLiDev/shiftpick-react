@@ -3,11 +3,13 @@ import Infobar from './Infobar';
 import PickingOrder from './PickingOrder';
 import SavedShifts from './SavedShifts';
 import Shifts from './Shifts';
+import SearchBar from './SearchBar';
+import ActiveFilters from './ActiveFilters';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { shifts: [], savedShifts: [] };
+        this.state = { shifts: [], savedShifts: [], filters: [] };
     }
 
     componentDidMount() {
@@ -23,9 +25,13 @@ class App extends React.Component {
     }
 
     addToSaved = (shift) => {
-        let temp = this.state.savedShifts;
-        temp.push(shift);
-        this.setState({ savedShifts: temp });
+        if (!this.state.savedShifts.includes(shift)) {
+            let temp = this.state.savedShifts;
+            temp.push(shift);
+            this.setState({ savedShifts: temp });
+        } else {
+            console.log('already saved! <-change this to user alert.')
+        }
     }
 
     removeFromSaved = (shift) => {
@@ -34,18 +40,30 @@ class App extends React.Component {
         this.setState({ savedShifts: temp });
     }
 
+    filterShifts = (keyword) => {
+        let temp = this.state.filters;
+        temp.push(keyword);
+        this.setState({ filters: temp });
+    }
+
+    removeFilter = (keyword) => {
+        let temp = this.state.filters;
+        temp.splice(this.state.filters.indexOf(keyword), 1);
+        this.setState({ filters: temp});
+    }
+
     render() {
         return (
             <div className="container">
+                <Infobar />
                 <div className="row">
-                    <Infobar />
-                </div>
-                <div className="row">
-                    <div className="col">
+                    <div className="col-3">
                         <PickingOrder />
                         <SavedShifts savedShifts={this.state.savedShifts} removeFromSaved={this.removeFromSaved} />
                     </div>
-                    <div className="col">
+                    <div className="col-9">
+                        <SearchBar filterShifts={this.filterShifts} />
+                        <ActiveFilters filters={this.state.filters} removeFilter={this.removeFilter}/>
                         <Shifts shifts={this.state.shifts} addToSaved={this.addToSaved} />
                     </div>
                 </div>
