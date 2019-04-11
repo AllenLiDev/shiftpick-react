@@ -3,7 +3,7 @@ import Shift from './Shift';
 
 const Shiftlist = (props) => {
     const shifts = props.shifts.map((shift) => {
-        return <Shift shift={shift} addToSaved={props.addToSaved} />
+        return <Shift shift={shift} removeFromSaved={props.removeFromSaved} remove='1' />
     });
     return <div>{shifts}</div>
 }

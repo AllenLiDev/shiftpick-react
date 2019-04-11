@@ -1,20 +1,33 @@
 import React from 'react';
 
 class Shift extends React.Component {
-    call(id) {
+    add(id) {
         this.props.addToSaved(id);
     }
 
+    remove(id) {
+        this.props.removeFromSaved(id);
+    } 
+
     render() {
-        console.log(this.props);
-        const { id, location, time } = this.props.shift;
-        return (
-            <div>
-                location: {location}, time:{time}
-                <button type="button"
-                    onClick={() => (this.call(id))}>-save-</button>
-            </div>
-        );
+        const { location, time } = this.props.shift;
+        if (!this.props.remove) {
+            return (
+                <div>
+                    location: {location}, time:{time}
+                    <button type="button"
+                        onClick={() => (this.add(this.props.shift))}>-save-</button>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    location: {location}, time:{time}
+                    <button type="button"
+                        onClick={() => (this.remove(this.props.shift))}>-delete-</button>
+                </div>
+            )
+        }
     }
 }
 
