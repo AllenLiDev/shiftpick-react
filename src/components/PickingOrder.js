@@ -1,7 +1,7 @@
 import React from 'react';
 
 class PickingOrder extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             current: 'Loading..',
@@ -14,12 +14,8 @@ class PickingOrder extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <h5>Currently: {this.state.current}</h5>
-                </div>
-                <div className="row">
-                    <h5>Next: {this.state.next}</h5>
-                </div>
+                <h5>Currently: {this.state.current}</h5>
+                <h5>Next: {this.state.next}</h5>
             </div>
         );
     }

@@ -4,8 +4,6 @@ import PickingOrder from './PickingOrder';
 import SavedShifts from './SavedShifts';
 import Shifts from './Shifts';
 
-import './index.css';
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -33,16 +31,24 @@ class App extends React.Component {
     removeFromSaved = (shift) => {
         let temp = this.state.savedShifts;
         temp.splice(this.state.savedShifts.indexOf(shift), 1);
-        this.setState({savedShifts: temp});
+        this.setState({ savedShifts: temp });
     }
 
     render() {
         return (
             <div className="container">
-                <Infobar />
-                <PickingOrder />
-                <SavedShifts savedShifts={this.state.savedShifts} removeFromSaved={this.removeFromSaved} />
-                <Shifts shifts={this.state.shifts} addToSaved={this.addToSaved} />
+                <div className="row">
+                    <Infobar />
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <PickingOrder />
+                        <SavedShifts savedShifts={this.state.savedShifts} removeFromSaved={this.removeFromSaved} />
+                    </div>
+                    <div className="col">
+                        <Shifts shifts={this.state.shifts} addToSaved={this.addToSaved} />
+                    </div>
+                </div>
             </div>
         );
     };
