@@ -5,8 +5,10 @@ class SavedShifts extends React.Component {
     render() {
         return (
             <div>
-                <div>Saved shifts</div>
-                <ShiftSavedList shifts={this.props.savedShifts} removeFromSaved={this.props.removeFromSaved} />
+                <ul className="list-group">
+                    <div className="list-group-item active">Saved shifts</div>
+                    <ShiftSavedList shifts={this.props.savedShifts} removeFromSaved={this.props.removeFromSaved} />
+                </ul>
             </div>
         );
     }

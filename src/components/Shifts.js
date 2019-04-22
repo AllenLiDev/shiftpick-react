@@ -5,8 +5,10 @@ class Shifts extends React.Component {
     render() {
         return (
             <div>
-                <div>Shift List 1</div>
-                <Shiftlist shifts={this.props.shifts} addToSaved={this.props.addToSaved} />
+                <ul className="list-group">
+                    <div className="list-group-item active">Shifts</div>
+                    <Shiftlist shifts={this.props.shifts} addToSaved={this.props.addToSaved} />
+                </ul>
             </div>
         );
     }

@@ -5,6 +5,7 @@ class SearchBar extends React.Component {
 
   onFormSubmit = (event) => {
     event.preventDefault();
+    this.setState({ term: ''});
     this.props.filterShifts(this.state.term);
   }
 

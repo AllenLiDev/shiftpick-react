@@ -13,7 +13,7 @@ class Shift extends React.Component {
         const { location, time } = this.props.shift;
         if (!this.props.remove) {
             return (
-                <div>
+                <div className="list-group-item">
                     location: {location}, time:{time}
                     <button type="button"
                         onClick={() => (this.add(this.props.shift))}>-save-</button>
@@ -21,7 +21,7 @@ class Shift extends React.Component {
             );
         } else {
             return (
-                <div>
+                <div className="list-group-item">
                     location: {location}, time:{time}
                     <button type="button"
                         onClick={() => (this.remove(this.props.shift))}>-delete-</button>

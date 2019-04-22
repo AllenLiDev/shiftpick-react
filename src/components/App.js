@@ -40,7 +40,7 @@ class App extends React.Component {
         this.setState({ savedShifts: temp });
     }
 
-    filterShifts = (keyword) => {
+    addFilter = (keyword) => {
         let temp = this.state.filters;
         temp.push(keyword);
         this.setState({ filters: temp });
@@ -57,12 +57,12 @@ class App extends React.Component {
             <div className="container">
                 <Infobar />
                 <div className="row">
-                    <div className="col-3">
+                    <div className="col-4">
                         <PickingOrder />
                         <SavedShifts savedShifts={this.state.savedShifts} removeFromSaved={this.removeFromSaved} />
                     </div>
-                    <div className="col-9">
-                        <SearchBar filterShifts={this.filterShifts} />
+                    <div className="col-8">
+                        <SearchBar filterShifts={this.addFilter} />
                         <ActiveFilters filters={this.state.filters} removeFilter={this.removeFilter}/>
                         <Shifts shifts={this.state.shifts} addToSaved={this.addToSaved} />
                     </div>

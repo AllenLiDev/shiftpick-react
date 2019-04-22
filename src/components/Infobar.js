@@ -15,11 +15,11 @@ class Infobar extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-sm">Shiftpick Demo</div>
-                <div className="col-sm text-center">CG Brown - (604)320-2206</div>
-                <div className="col-sm text-right">{this.state.time}</div>
-            </div>
+            <nav class="navbar navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1">Shiftpick Demo</span>
+                <div>CG Brown - (604)320-2206</div>
+                <div>{this.state.time}</div>
+            </nav>
         )
     }
 }
