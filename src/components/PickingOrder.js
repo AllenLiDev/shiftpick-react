@@ -12,16 +12,16 @@ class PickingOrder extends React.Component {
 
     render() {
         return (
-            <div class="card text-center">
-                <div class="card-header">
+            <div className="card text-center">
+                <div className="card-header">
                     Who's Picking
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Current</h5>
-                    <p class="card-text">{this.state.current}</p>
-                    <span class="badge badge-primary">Time Remaning {this.state.currentTime}</span>
+                <div className="card-body">
+                    <h5 className="card-title">Current</h5>
+                    <p className="card-text">{this.state.current}</p>
+                    <span className="badge badge-primary">Time Remaning {this.state.currentTime}</span>
                 </div>
-                <div class="card-footer text-muted">
+                <div className="card-footer text-muted">
                     Next: {this.state.next}
                 </div>
             </div>
